@@ -1,0 +1,41 @@
+---
+
+- name: install nginx
+  block:
+    - name: update nginx config
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        owner: nginx
+      notify:
+        - reload nginx
+
+    - name: update nginx static
+      copy:
+        src: "files/"
+        dest: "{{ root_dir }}"
+        owner: nginx
+      notify:
+        - reload nginx
+
+#    - name: off firewalld
+#      service:
+#        name: firewalld.service
+#        state: stopped
+#        daemon_reload: no
+#        enabled: no
+
+    - name: start firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: enable 80
+      firewalld:
+        zone: public
+        port: 80/tcp
+        permanent: true
+        state: enabled
+      notify:
+        - reload firewall
