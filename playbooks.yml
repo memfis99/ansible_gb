@@ -1,6 +1,0 @@
----
-
-- hosts: webservers
-  roles:
-    - nginx
-
