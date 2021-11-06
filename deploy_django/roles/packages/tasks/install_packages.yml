@@ -1,0 +1,15 @@
+---
+
+- name: Install base needed yum-packages
+  yum:
+    name: '{{item}}'
+    state: present
+  loop:
+    - python3-devel
+    - python3-virtualenv
+    - python3-pip
+    - tcl
+    - tk
+    - python3-tkinter
+    - git
+    - python-virtualenv

@@ -1,0 +1,21 @@
+---
+
+- name: Install PostgreSQL
+  yum:
+    pkg:
+      - postgresql
+      - postgresql-contrib
+      - postgresql-server
+      - python3-psycopg2
+      - python-psycopg2
+    state: latest
+
+- name: init DB
+  ansible.builtin.shell:
+    cmd: postgresql-setup initdb
+
+- name: Start and enable postgres
+  service:
+    name: postgresql
+    enabled: yes
+    state: started

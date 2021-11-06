@@ -1,0 +1,14 @@
+---
+
+root_dir: "/usr/share/nginx/html"
+default_dir: "/etc/nginx/sites-available/default"
+hostname: django.domain.local
+domain: djdomain
+db_user:  mydjangouser
+db_password: SOMEPASSWORD!!!
+db_name: djproject
+project_name_path: /usr/share/nginx/djangoproject
+project_name: djangoproject
+nginx_user: www-data
+nginx_user_pass: www-data
+

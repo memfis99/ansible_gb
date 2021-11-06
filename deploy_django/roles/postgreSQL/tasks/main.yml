@@ -1,0 +1,12 @@
+---
+
+- name: 'install_postgreSQL'
+  import_tasks: 'install_postgreSQL.yml'
+  tags: ['install_postgreSQL']
+
+- name: 'config_postgreSQL'
+  import_tasks: 'config_postgreSQL.yml'
+  tags: ['config_postgreSQL']
+
+
+

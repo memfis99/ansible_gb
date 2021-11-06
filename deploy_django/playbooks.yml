@@ -1,0 +1,10 @@
+---
+
+- hosts: django_servers
+#  become: true
+  roles:
+    - packages
+    - nginx
+    - postgreSQL
+    - django
+    - gunicorn

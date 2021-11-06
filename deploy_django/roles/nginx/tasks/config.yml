@@ -1,0 +1,64 @@
+---
+
+- name: config nginx
+  block:
+    - name: Create user nginx
+      user:
+        name: "{{ nginx_user }}"
+        password: "{{ nginx_user_pass | password_hash('sha512') }}"
+        state: present
+        group: wheel
+        append: yes
+        shell: "/bin/bash"
+        update_password: on_create
+      when: deploy_user.groups is not defined
+
+    - name: Add a group for user nginx
+      group:
+        name: www-data
+        state: present
+
+    - name: Create Root Directory for Nginx
+      file:
+        path: "{{ root_dir }}"
+        mode: 775
+        state: directory
+        owner: www-data
+        group: www-data
+      notify:
+        - reload nginx
+
+    - name: Create default Directory for Nginx
+      file:
+        path: "{{ default_dir }}"
+        mode: 775
+        state: directory
+        owner: www-data
+        group: www-data
+      notify:
+        - reload nginx
+
+
+    - name: Add Nginx cofig
+      template:
+        src: default.j2
+        dest: /etc/nginx/sites-available/default
+        owner: www-data
+        group: www-data
+      notify:
+        - reload nginx
+
+    - name: start firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: enable 80
+      firewalld:
+        zone: public
+        port: 80/tcp
+        permanent: true
+        state: enabled
+      notify:
+        - reload firewall

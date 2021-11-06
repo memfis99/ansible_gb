@@ -1,0 +1,5 @@
+---
+
+- name: 'install_django_prepare'
+  import_tasks: 'install_django_prepare.yml'
+  tags: ['install_django_prepare']
