@@ -3,6 +3,7 @@
 - hosts: django_servers
 #  become: true
   roles:
+    - packages ubuntu
     - packages
     - nginx
     - postgreSQL

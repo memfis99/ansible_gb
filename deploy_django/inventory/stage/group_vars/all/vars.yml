@@ -5,7 +5,7 @@ default_dir: "/etc/nginx/sites-available/default"
 hostname: django.domain.local
 domain: djdomain
 db_user:  mydjangouser
-db_password: SOMEPASSWORD!!!
+db_password: 131384
 db_name: djproject
 project_name_path: /usr/share/nginx/djangoproject
 project_name: djangoproject

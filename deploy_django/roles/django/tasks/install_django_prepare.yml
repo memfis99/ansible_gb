@@ -11,6 +11,7 @@
     virtualenv: "{{project_name_path}}/env"
     virtualenv_command: virtualenv
     virtualenv_python: python3
+  ignore_errors: yes
 
 - name: Instal python library for PSQL
   pip:
@@ -21,6 +22,7 @@
 
 - name: Install a django project
   command: "{{ project_name_path }}/env/bin/django-admin.py startproject {{ project_name }} chdir={{ project_name_path }}/"
+  ignore_errors: yes
 
 - name: Create Settings File for Django
   template:

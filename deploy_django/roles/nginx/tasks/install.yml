@@ -2,15 +2,15 @@
 
 - name: install nginx
   block:
-    - name: prepare steps for nginx
-      block:
-        - name: Install EPEL repo
-          yum:
-            name: epel-release
-            state: present
+    #- name: prepare steps for nginx
+    #  block:
+    #    - name: Install EPEL repo
+    #      apt:
+    #        name: epel-release
+    #        state: present
 
     - name: install nginx server
-      yum:
+      apt:
         name: nginx
         state: present
         update_cache: yes
