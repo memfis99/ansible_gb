@@ -1,0 +1,11 @@
+---
+
+- name: postgresql start
+  service:
+    name: postgresql
+    state: starte
+
+- name: postgresql restart
+  service:
+    name: postgresql
+    state: restarted

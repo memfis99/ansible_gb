@@ -1,0 +1,28 @@
+---
+
+- name: Install PostgreSQL
+  apt:
+    pkg:
+      - python3-dev
+      - libpq-dev
+      - postgresql
+      - postgresql-contrib
+      - postgresql-server-dev-all
+      - python3-psycopg2
+#      - python-psycopg2
+    state: latest
+
+- name: Install psycopg2
+  pip:
+    name: psycopg2
+
+
+#- name: init DB
+#  ansible.builtin.shell:
+#    cmd: postgresql-setup initdb
+
+- name: Start and enable postgres
+  service:
+    name: postgresql
+    enabled: yes
+    state: started
