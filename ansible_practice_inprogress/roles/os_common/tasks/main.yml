@@ -7,3 +7,7 @@
 - name: 'set-dns host'
   import_tasks: 'set-dns.yml'
   tags: ['set-dns host']
+
+- name: 'set-host name'
+  import_tasks: 'change_hn.yml'
+  tags: [ 'set-host name' ]
