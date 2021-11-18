@@ -2,7 +2,7 @@
 
 - name: Update Hostnames
   hostname:
-    name: "{{ new_hostname }
+    name: "{{ new_hostname }}"
 
 - name: 'Add hostname to /etc/hosts'
   lineinfile:
