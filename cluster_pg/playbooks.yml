@@ -1,0 +1,8 @@
+---
+
+- hosts: pg_master
+  roles:
+    pg_repl
+    #- preparation
+    #- postgres
+    #- user

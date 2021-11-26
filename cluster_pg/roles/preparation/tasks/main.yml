@@ -1,0 +1,10 @@
+---
+
+- name: 'firewall'
+  import_tasks: 'firewall.yml'
+  tags: ['firewall']
+
+- name: 'selinux'
+  import_tasks: 'selinux.yml'
+  tags: ['selinux']
+
