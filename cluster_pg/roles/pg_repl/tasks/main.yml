@@ -1,5 +1,0 @@
----
-
-- name: 'pg_repl'
-  import_tasks: 'pg_replication.yml'
-  tags: ['pg_repl']

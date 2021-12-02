@@ -1,6 +1,0 @@
-- name: reload postgres
-  service:
-    name: postgres
-    state: reloaded
-    daemon_reload: yes
-    enabled: yes

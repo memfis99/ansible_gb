@@ -1,5 +1,0 @@
----
-
-- name: 'add user for rep'
-  import_tasks: 'add_user_pg.yml'
-  tags: ['add_user_rep']

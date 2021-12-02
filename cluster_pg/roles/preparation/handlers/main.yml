@@ -1,8 +1,0 @@
----
-
-- name: reload firewall
-  service:
-    name: firewalld
-    state: reloaded
-    daemon_reload: yes
-    enabled: yes
