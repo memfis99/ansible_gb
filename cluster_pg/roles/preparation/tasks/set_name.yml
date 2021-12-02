@@ -1,0 +1,13 @@
+---
+
+- name: Set a hostname for slave
+  hostname:
+    name: slave
+    use: systemd
+  when: inventory_hostname in groups['pg_slaves']
+
+- name: Set a hostname for master
+  hostname:
+    name: master
+    use: systemd
+  when: inventory_hostname in groups['pg_master']

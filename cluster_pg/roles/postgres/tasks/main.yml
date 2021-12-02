@@ -1,0 +1,5 @@
+---
+
+- name: 'postgres'
+  import_tasks: 'pg.yml'
+  tags: ['postgres']
